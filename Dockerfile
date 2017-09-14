@@ -2,10 +2,14 @@
 #
 # VERSION               0.0.1
 
-FROM nginx
+FROM node:8-alpine
 
 MAINTAINER Bruno Reato
-ADD properties.js.template /tmp/properties.js.template
+ADD config_properties.js /config_properties.js
+
+RUN apk update && \
+    apk upgrade && \
+    apk add unzip curl
 
 #Entrypoint
 ADD entrypoint.sh /entrypoint.sh
