@@ -16,7 +16,12 @@ then
    unzip bbjet-mobile-ui-$VERSION.zip
 
    rm bbjet-mobile-ui-$VERSION.zip
+
+   echo "Instalando dependencias NPM..."
+   npm i
 fi
+
+cd $APP_DIR 
 
 if [ ! -d $FRONTEND_DIR/config ]; then
    echo "No se encontro la carpeta de configuracion.  Se creara..."
@@ -28,9 +33,6 @@ if [ ! -d $FRONTEND_DIR/config ]; then
    cp -R $APP_DIR/dist/images/* $FRONTEND_DIR/config/images
    node /config_properties.js $FRONTEND_DIR/config/dist/properties.js $REST_URL $GOOGLE_API_KEY $SYNC_PALJET
 fi
-
-echo "Instalando dependencias NPM..."
-npm i
 
 echo "Modificando enlaces simbolicos"
 if [ -f $APP_DIR/webserver/config.json ]; then
