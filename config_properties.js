@@ -18,4 +18,4 @@ config.prop.googleApiKey = process.argv[4];
 config.prop.paljet = (process.argv[5].toUpperCase() == "TRUE");
 
 var newConfig = 'app.prop = ' + JSON.stringify(config.prop, null, 3) + ';\n\r app.langConfig = ' + JSON.stringify(config.langConfig, null, 3) + ';';
-fs.writeFileSync('./properties.js', newConfig);
+fs.writeFileSync(process.argv[2], newConfig);
