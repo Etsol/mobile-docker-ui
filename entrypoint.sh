@@ -3,6 +3,8 @@
 FRONTEND_DIR=/home/ui
 APP_DIR=$FRONTEND_DIR/$VERSION
 
+mkdir -p $FRONTEND_DIR
+
 cd $FRONTEND_DIR
 
 if [ ! -d $VERSION/dist ] 
